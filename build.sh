@@ -1,0 +1,4 @@
+#!/bin/sh
+set -e
+python -m pytest tests/
+python -m build

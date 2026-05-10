@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "User",
+  "namespace": "com.example",
+  "fields": [
+    { "name": "id", "type": "int" },
+    { "name": "username", "type": "string" },
+    {
+      "name": "address",
+      "type": {
+        "type": "record",
+        "name": "AddressRecord",
+        "fields": [
+          { "name": "street", "type": "string" },
+          { "name": "city", "type": "string" },
+          { "name": "zip", "type": "int" }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+ollama:
+    host: http://localhost:11434
+    model: qwen2.5:3b
+    timeout: 120
+    system_installer_url: https://ollama.com/install.sh
+    user_binary_url: https://github.com/ollama/ollama/releases/latest/download/ollama-linux-amd64.tar.zst
+    user_binary_install_dir: ~/.local/bin
+
+network:
+    proxy: http://noproxy.co.nz:8080
+
+snowflake:
+    database: {{ database }}
+    schema: {{ schema }}
