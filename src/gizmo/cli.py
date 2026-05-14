@@ -166,6 +166,15 @@ def ollama_status_cmd():
     click.echo(_yaml.dump(info, default_flow_style=False).strip())
 
 
+@ollama_group.command("prompt")
+@click.argument("text")
+@click.option("--model", default=DEFAULT_MODEL, show_default=True, help="Ollama model to use")
+def ollama_prompt_cmd(text, model):
+    """Prompt Ollama and get response."""
+    response = _ollama.prompt(text, model)
+    click.secho(response['response'], fg="green")
+
+
 @cli.command("forge")
 @click.option("--model", default=DEFAULT_MODEL, show_default=True, help="Ollama model to use")
 @click.option("--avro2sql", metavar="AVRO_FILE", default=None,

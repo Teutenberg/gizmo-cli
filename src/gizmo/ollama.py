@@ -5,6 +5,7 @@ import subprocess
 import tempfile
 import urllib.request
 import urllib.error
+from ollama import generate
 from pathlib import Path
 from .config import config_get
 
@@ -135,3 +136,8 @@ def status() -> dict:
         except Exception:
             info["installed_models"] = []
     return info
+
+
+def prompt(text: str, model: str | None = None) -> str:
+    target_model = model or ollama_model()
+    return generate(target_model, text)
